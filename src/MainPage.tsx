@@ -2,6 +2,7 @@ import React from 'react';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import TasksTable from './TasksTable';
 import {TasksEstimationProvider} from './useTasksEstimations';
+import ResultsBar from './ResultsBar';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -21,15 +22,14 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-type MainPageProps = {};
-
-const MainPage = (props: MainPageProps) => {
+const MainPage = () => {
 	const classes = useStyles();
 
 	return (
 		<TasksEstimationProvider>
 			<div className={classes.root}>
 				<TasksTable />
+				<ResultsBar />
 			</div>
 		</TasksEstimationProvider>
 	);

@@ -34,7 +34,7 @@ export const useTaskEstimationContext = result[1] as () => TasksEstimationsState
 export type taskType = {
 	id: number;
 	text: string | null;
-	pessimisticTime: number | null;
-	mostLikelyTime: number | null;
 	optimisticTime: number | null;
+	mostLikelyTime: number | null;
+	pessimisticTime: number | null;
 };

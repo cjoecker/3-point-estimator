@@ -21,9 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-type MainPageProps = {};
-
-const TasksTable = (props: MainPageProps) => {
+const TasksTable = () => {
 	const classes = useStyles();
 
 	const {tasks, addTask, editTask} = useTaskEstimationContext();
@@ -77,6 +75,8 @@ const TasksTable = (props: MainPageProps) => {
 													input: classes.numberInput,
 												},
 											}}
+											value={task.optimisticTime}
+											onChange={e => editTask({...task, optimisticTime: parseInt(e.target.value, 10)})}
 										/>
 									</Paper>
 								</Grid>
@@ -90,6 +90,8 @@ const TasksTable = (props: MainPageProps) => {
 													input: classes.numberInput,
 												},
 											}}
+											value={task.mostLikelyTime}
+											onChange={e => editTask({...task, mostLikelyTime: parseInt(e.target.value, 10)})}
 										/>
 									</Paper>
 								</Grid>
@@ -103,6 +105,8 @@ const TasksTable = (props: MainPageProps) => {
 													input: classes.numberInput,
 												},
 											}}
+											value={task.pessimisticTime}
+											onChange={e => editTask({...task, pessimisticTime: parseInt(e.target.value, 10)})}
 										/>
 									</Paper>
 								</Grid>
