@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
-import {Grid, Paper, TextField} from '@material-ui/core';
+import {Grid, TextField} from '@material-ui/core';
 import {taskType, useTaskEstimationContext} from './useTasksEstimations';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		root: {
 			flexGrow: 1,
 		},
-		paper: {
+		elementsWrapper: {
 			padding: theme.spacing(2),
 		},
 		taskInput: {
@@ -56,17 +56,17 @@ const TasksTable = () => {
 						<Grid container>
 							<Grid container spacing={2}>
 								<Grid item className={classes.taskInput}>
-									<Paper className={classes.paper}>
+									<div className={classes.elementsWrapper}>
 										<TextField
 											id='standard-basic'
 											fullWidth
 											value={task.text}
 											onChange={e => editTask({...task, text: e.target.value})}
 										/>
-									</Paper>
+									</div>
 								</Grid>
 								<Grid item style={{display: 'block'}}>
-									<Paper className={classes.paper}>
+									<div className={classes.elementsWrapper}>
 										<TextField
 											fullWidth
 											type='number'
@@ -78,10 +78,10 @@ const TasksTable = () => {
 											value={task.optimisticTime}
 											onChange={e => editTask({...task, optimisticTime: parseInt(e.target.value, 10)})}
 										/>
-									</Paper>
+									</div>
 								</Grid>
 								<Grid item>
-									<Paper className={classes.paper}>
+									<div className={classes.elementsWrapper}>
 										<TextField
 											fullWidth
 											type='number'
@@ -93,10 +93,10 @@ const TasksTable = () => {
 											value={task.mostLikelyTime}
 											onChange={e => editTask({...task, mostLikelyTime: parseInt(e.target.value, 10)})}
 										/>
-									</Paper>
+									</div>
 								</Grid>
 								<Grid item>
-									<Paper className={classes.paper}>
+									<div className={classes.elementsWrapper}>
 										<TextField
 											fullWidth
 											type='number'
@@ -108,7 +108,7 @@ const TasksTable = () => {
 											value={task.pessimisticTime}
 											onChange={e => editTask({...task, pessimisticTime: parseInt(e.target.value, 10)})}
 										/>
-									</Paper>
+									</div>
 								</Grid>
 							</Grid>
 						</Grid>

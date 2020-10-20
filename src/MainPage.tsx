@@ -4,20 +4,17 @@ import TasksTable from './TasksTable';
 import {TasksEstimationProvider} from './useTasksEstimations';
 import ResultsBar from './ResultsBar';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((styleTheme: Theme) =>
 	createStyles({
 		root: {
-			flexGrow: 1,
+			width: '100%',
+			overflowX: 'hidden', //Avoid negative margin from mainGrid
+			display: 'flex',
+			flexDirection: 'column',
+			minHeight: '100vh',
 		},
-		paper: {
-			padding: theme.spacing(2),
-		},
-		taskInput: {
-			flexGrow: 1,
-		},
-		numberInput: {
-			textAlign: 'center',
-			width: '15ch',
+		tasksTableWrapper: {
+			margin: styleTheme.spacing(0, 10),
 		},
 	})
 );
@@ -27,10 +24,14 @@ const MainPage = () => {
 
 	return (
 		<TasksEstimationProvider>
-			<div className={classes.root}>
-				<TasksTable />
-				<ResultsBar />
-			</div>
+			<main role='main'>
+				<div className={classes.root}>
+					<div className={classes.tasksTableWrapper}>
+						<TasksTable />
+						<ResultsBar />
+					</div>
+				</div>
+			</main>
 		</TasksEstimationProvider>
 	);
 };
