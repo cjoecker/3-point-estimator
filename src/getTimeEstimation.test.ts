@@ -25,7 +25,7 @@ it('get time estimations', () => {
 		},
 	];
 
-	expect(getTimeEstimation(tasks, 1)).toEqual(12.251);
-	expect(getTimeEstimation(tasks, 2)).toEqual(13.703);
-	expect(getTimeEstimation(tasks, 3)).toEqual(15.154);
+	expect(getTimeEstimation(tasks, 1)).toEqual(12.25);
+	expect(getTimeEstimation(tasks, 2)).toEqual(13.7);
+	expect(getTimeEstimation(tasks, 3)).toEqual(15.15);
 });

@@ -1,5 +1,6 @@
 import React from 'react';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
+import {Grid} from '@material-ui/core';
 import TasksTable from './TasksTable';
 import {TasksEstimationProvider} from './useTasksEstimations';
 import ResultsBar from './ResultsBar';
@@ -28,7 +29,9 @@ const MainPage = () => {
 				<div className={classes.root}>
 					<div className={classes.tasksTableWrapper}>
 						<TasksTable />
-						<ResultsBar />
+						<Grid container direction='row' justify='flex-end' alignItems='flex-end'>
+							<ResultsBar />
+						</Grid>
 					</div>
 				</div>
 			</main>

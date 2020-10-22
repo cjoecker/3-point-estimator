@@ -7,7 +7,7 @@ function theme(): Theme {
 	const secondary = '#cdcdcd';
 	const secondaryContrastText = '#303030';
 	const primaryText = '#ffffff';
-	const secondaryText = '#d4a32e';
+	const secondaryText = '#dbbc73';
 	const disabledText = '#B0B0B0';
 
 	/* eslint-disable no-bitwise*/
@@ -36,29 +36,29 @@ function theme(): Theme {
 				fontSize: 14,
 			},
 			fontWeightRegular: 100,
-			fontWeightBold: 200,
+			fontWeightBold: 300,
 			h1: {
-				fontWeight: 200,
+				fontWeight: 300,
 				fontSize: 28,
 			},
 			h2: {
-				fontWeight: 200,
+				fontWeight: 300,
 				fontSize: 23,
 			},
 			h3: {
-				fontWeight: 200,
+				fontWeight: 300,
 				fontSize: 20,
 			},
 			h4: {
-				fontWeight: 200,
+				fontWeight: 300,
 				fontSize: 18,
 			},
 			h5: {
-				fontWeight: 200,
+				fontWeight: 300,
 				fontSize: 18,
 			},
 			h6: {
-				fontWeight: 200,
+				fontWeight: 300,
 				fontSize: 16,
 			},
 			body1: {
@@ -74,31 +74,31 @@ function theme(): Theme {
 			MuiTypography: {
 				root: {
 					'& h1': {
-						fontWeight: 200,
+						fontWeight: 300,
 						fontSize: 28,
 					},
 					'& h2': {
-						fontWeight: 200,
+						fontWeight: 300,
 						fontSize: 23,
 						marginTop: 50,
 					},
 					'& h3': {
-						fontWeight: 200,
+						fontWeight: 300,
 						fontSize: 20,
 						marginBottom: -4,
 						marginTop: 30,
 					},
 					'& h4': {
-						fontWeight: 200,
+						fontWeight: 300,
 						fontSize: 18,
 						marginTop: 20,
 					},
 					'& h5': {
-						fontWeight: 200,
+						fontWeight: 300,
 						fontSize: 18,
 					},
 					'& h6': {
-						fontWeight: 200,
+						fontWeight: 300,
 						fontSize: 16,
 					},
 					'& body': {
@@ -115,6 +115,30 @@ function theme(): Theme {
 					body: {
 						background: `linear-gradient(145deg, ${background} 0%, ${shadeHexColor(background, -0.57)}) 100%`,
 					},
+					u: {
+						textDecoration: 'none',
+						borderBottom: `0.5px solid`,
+						paddingBottom: `-0.5px`,
+					},
+				},
+			},
+			MuiPaper: {
+				root: {
+					backgroundColor: background,
+					border: `solid 0.5px ${primaryText}`,
+				},
+				elevation8: {
+					boxShadow: 'none',
+					border: `solid 0.5px ${primaryText}`,
+				},
+			},
+			MuiOutlinedInput: {
+				notchedOutline: {
+					borderWidth: `0.5px`,
+					borderColor: primaryText,
+				},
+				input: {
+					padding: '5px 10px',
 				},
 			},
 		},

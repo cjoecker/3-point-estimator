@@ -1,22 +1,26 @@
 import React, {useEffect} from 'react';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
-import {Grid, TextField} from '@material-ui/core';
+import {TextField, Typography} from '@material-ui/core';
 import {taskType, useTaskEstimationContext} from './useTasksEstimations';
+import TasksRow from './TasksRow';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		root: {
 			flexGrow: 1,
 		},
-		elementsWrapper: {
-			padding: theme.spacing(2),
+		itemsWrapper: {
+			padding: theme.spacing(1),
+		},
+		timesWrapper: {
+			width: '20ch',
+			textAlign: 'center',
 		},
 		taskInput: {
 			flexGrow: 1,
 		},
 		numberInput: {
 			textAlign: 'center',
-			width: '15ch',
 		},
 	})
 );
@@ -50,69 +54,59 @@ const TasksTable = () => {
 
 	return (
 		<div className={classes.root}>
+			<TasksRow
+				items={[
+					underlinedTitle('Tasks'),
+					underlinedTitle('Optimistic Time'),
+					underlinedTitle('Most Likely Time'),
+					underlinedTitle('Pessimistic Time'),
+				]}
+			/>
 			{tasks.map(task => {
 				return (
-					<>
-						<Grid container>
-							<Grid container spacing={2}>
-								<Grid item className={classes.taskInput}>
-									<div className={classes.elementsWrapper}>
-										<TextField
-											id='standard-basic'
-											fullWidth
-											value={task.text}
-											onChange={e => editTask({...task, text: e.target.value})}
-										/>
-									</div>
-								</Grid>
-								<Grid item style={{display: 'block'}}>
-									<div className={classes.elementsWrapper}>
-										<TextField
-											fullWidth
-											type='number'
-											InputProps={{
-												classes: {
-													input: classes.numberInput,
-												},
-											}}
-											value={task.optimisticTime}
-											onChange={e => editTask({...task, optimisticTime: parseInt(e.target.value, 10)})}
-										/>
-									</div>
-								</Grid>
-								<Grid item>
-									<div className={classes.elementsWrapper}>
-										<TextField
-											fullWidth
-											type='number'
-											InputProps={{
-												classes: {
-													input: classes.numberInput,
-												},
-											}}
-											value={task.mostLikelyTime}
-											onChange={e => editTask({...task, mostLikelyTime: parseInt(e.target.value, 10)})}
-										/>
-									</div>
-								</Grid>
-								<Grid item>
-									<div className={classes.elementsWrapper}>
-										<TextField
-											fullWidth
-											type='number'
-											InputProps={{
-												classes: {
-													input: classes.numberInput,
-												},
-											}}
-											value={task.pessimisticTime}
-											onChange={e => editTask({...task, pessimisticTime: parseInt(e.target.value, 10)})}
-										/>
-									</div>
-								</Grid>
-							</Grid>
-						</Grid>
-					</>
+					<TasksRow
+						items={[
+							<TextField
+								id='standard-basic'
+								fullWidth
+								value={task.text}
+								onChange={e => editTask({...task, text: e.target.value})}
+							/>,
+							<TextField
+								fullWidth
+								type='number'
+								InputProps={{
+									classes: {
+										input: classes.numberInput,
+									},
+								}}
+								value={task.optimisticTime}
+								onChange={e => editTask({...task, optimisticTime: parseInt(e.target.value, 10)})}
+							/>,
+							<TextField
+								fullWidth
+								type='number'
+								InputProps={{
+									classes: {
+										input: classes.numberInput,
+									},
+								}}
+								value={task.mostLikelyTime}
+								onChange={e => editTask({...task, mostLikelyTime: parseInt(e.target.value, 10)})}
+							/>,
+							<TextField
+								fullWidth
+								type='number'
+								InputProps={{
+									classes: {
+										input: classes.numberInput,
+									},
+								}}
+								value={task.pessimisticTime}
+								onChange={e => editTask({...task, pessimisticTime: parseInt(e.target.value, 10)})}
+							/>,
+						]}
+					/>
 				);
 			})}
 		</div>
@@ -120,3 +114,11 @@ const TasksTable = () => {
 };
 
 export default TasksTable;
+
+const underlinedTitle = (text: string) => (
+	<Typography variant='body1' color='textSecondary'>
+		<b>
+			<u>{text}</u>
+		</b>
+	</Typography>
+);

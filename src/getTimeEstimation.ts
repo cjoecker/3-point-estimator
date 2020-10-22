@@ -15,5 +15,5 @@ export default function getTimeEstimation(tasks: taskType[], deviation: number):
 
 	const totalEstimatedTime = totalMean + Math.sqrt(totalVarians) * deviation;
 
-	return Math.round((totalEstimatedTime + Number.EPSILON) * 1000) / 1000;
+	return Math.round((totalEstimatedTime + Number.EPSILON) * 100) / 100;
 }
