@@ -3,14 +3,12 @@ import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import {Button, TextField, Typography} from '@material-ui/core';
 import {useTaskEstimationContext} from '../hooks/useTasksEstimations';
 import TasksRow from './components/TasksRow';
+import TimeInput from './components/TimeInput';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		root: {
 			flexGrow: 1,
-		},
-		numberInput: {
-			textAlign: 'center',
 		},
 		buttonWrapper: {
 			marginTop: theme.spacing(1),
@@ -57,38 +55,20 @@ const TasksTable = () => {
 								value={task.text}
 								onChange={e => editTask({...task, text: e.target.value})}
 							/>,
-							<TextField
-								fullWidth
-								type='number'
-								InputProps={{
-									classes: {
-										input: classes.numberInput,
-									},
-								}}
+							<TimeInput
 								value={task.optimisticTime}
-								onChange={e => editTask({...task, optimisticTime: parseInt(e.target.value, 10)})}
+								onChange={value => editTask({...task, optimisticTime: value})}
+								ariaLabel='optimistic time'
 							/>,
-							<TextField
-								fullWidth
-								type='number'
-								InputProps={{
-									classes: {
-										input: classes.numberInput,
-									},
-								}}
+							<TimeInput
 								value={task.mostLikelyTime}
-								onChange={e => editTask({...task, mostLikelyTime: parseInt(e.target.value, 10)})}
+								onChange={value => editTask({...task, mostLikelyTime: value})}
+								ariaLabel='most likely time'
 							/>,
-							<TextField
-								fullWidth
-								type='number'
-								InputProps={{
-									classes: {
-										input: classes.numberInput,
-									},
-								}}
+							<TimeInput
 								value={task.pessimisticTime}
-								onChange={e => editTask({...task, pessimisticTime: parseInt(e.target.value, 10)})}
+								onChange={value => editTask({...task, pessimisticTime: value})}
+								ariaLabel='pessimistic time'
 							/>,
 						]}
 					/>

@@ -4,6 +4,10 @@ import {TextField} from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
+		root: {
+			display: 'flex',
+			flexDirection: 'row',
+		},
 		numberInput: {
 			textAlign: 'center',
 		},
@@ -11,18 +15,20 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type taskRowType = {
-	value: number;
+	value: number | null;
 	onChange: (value: number) => void;
+	ariaLabel: string;
 };
 
-const TasksRow = (props: taskRowType) => {
+const TimeInput = (props: taskRowType) => {
 	const classes = useStyles();
 
-	const {value, onChange} = props;
+	const {value, onChange, ariaLabel} = props;
 
 	return (
-		<div>
+		<div className={classes.root}>
 			<TextField
+				aria-label={ariaLabel}
 				fullWidth
 				type='number'
 				InputProps={{
@@ -31,10 +37,10 @@ const TasksRow = (props: taskRowType) => {
 					},
 				}}
 				value={value}
-				onChange={e => onChange(parseInt(e.target.value, 10))}
+				onChange={e => onChange(parseFloat(e.target.value))}
 			/>
 		</div>
 	);
 };
 
-export default TasksRow;
+export default TimeInput;

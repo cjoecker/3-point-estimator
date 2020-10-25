@@ -21,7 +21,7 @@ type timeInputType = {
 	items: JSX.Element[];
 };
 
-const TimeInput = (props: timeInputType) => {
+const TasksRow = (props: timeInputType) => {
 	const classes = useStyles();
 
 	const {items} = props;
@@ -50,4 +50,4 @@ const TimeInput = (props: timeInputType) => {
 	);
 };
 
-export default TimeInput;
+export default TasksRow;
