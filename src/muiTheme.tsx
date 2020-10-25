@@ -30,43 +30,43 @@ function theme(): Theme {
 
 	return createMuiTheme({
 		typography: {
-			fontFamily: ['Work Sans', 'Calibri', 'sans-serif'].join(','),
+			fontFamily: ['Heebo', 'Calibri', 'sans-serif'].join(','),
 			caption: {
-				fontWeight: 100,
+				fontWeight: 300,
 				fontSize: 14,
 			},
-			fontWeightRegular: 100,
-			fontWeightBold: 300,
+			fontWeightRegular: 300,
+			fontWeightBold: 400,
 			h1: {
-				fontWeight: 300,
+				fontWeight: 400,
 				fontSize: 28,
 			},
 			h2: {
-				fontWeight: 300,
+				fontWeight: 400,
 				fontSize: 23,
 			},
 			h3: {
-				fontWeight: 300,
+				fontWeight: 400,
 				fontSize: 20,
 			},
 			h4: {
-				fontWeight: 300,
+				fontWeight: 400,
 				fontSize: 18,
 			},
 			h5: {
-				fontWeight: 300,
+				fontWeight: 400,
 				fontSize: 18,
 			},
 			h6: {
-				fontWeight: 300,
+				fontWeight: 400,
 				fontSize: 16,
 			},
 			body1: {
-				fontWeight: 100,
+				fontWeight: 300,
 				fontSize: 16,
 			},
 			body2: {
-				fontWeight: 100,
+				fontWeight: 300,
 				fontSize: 16,
 			},
 		},
@@ -74,35 +74,35 @@ function theme(): Theme {
 			MuiTypography: {
 				root: {
 					'& h1': {
-						fontWeight: 300,
+						fontWeight: 400,
 						fontSize: 28,
 					},
 					'& h2': {
-						fontWeight: 300,
+						fontWeight: 400,
 						fontSize: 23,
 						marginTop: 50,
 					},
 					'& h3': {
-						fontWeight: 300,
+						fontWeight: 400,
 						fontSize: 20,
 						marginBottom: -4,
 						marginTop: 30,
 					},
 					'& h4': {
-						fontWeight: 300,
+						fontWeight: 400,
 						fontSize: 18,
 						marginTop: 20,
 					},
 					'& h5': {
-						fontWeight: 300,
+						fontWeight: 400,
 						fontSize: 18,
 					},
 					'& h6': {
-						fontWeight: 300,
+						fontWeight: 400,
 						fontSize: 16,
 					},
 					'& body': {
-						fontWeight: 100,
+						fontWeight: 300,
 						fontSize: 16,
 					},
 					'& a': {
