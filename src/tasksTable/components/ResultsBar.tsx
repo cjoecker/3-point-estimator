@@ -1,8 +1,8 @@
 import React from 'react';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import {FormControl, Grid, MenuItem, Select, Typography} from '@material-ui/core';
-import {useTaskEstimationContext} from './useTasksEstimations';
-import getTimeEstimation from './getTimeEstimation';
+import {useTaskEstimationContext} from '../../hooks/useTasksEstimations';
+import getTimeEstimation from '../../utils/getTimeEstimation';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			border: 'solid 0.5px white',
 			padding: theme.spacing(2),
 			marginTop: theme.spacing(2),
+			marginRight: theme.spacing(2),
 		},
 		typography: {
 			margin: theme.spacing(0, 2),

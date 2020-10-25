@@ -1,9 +1,9 @@
 import React from 'react';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core';
-import TasksTable from './TasksTable';
-import {TasksEstimationProvider} from './useTasksEstimations';
-import ResultsBar from './ResultsBar';
+import TasksTable from './tasksTable/TasksTable';
+import {TasksEstimationProvider} from './hooks/useTasksEstimations';
+import ResultsBar from './tasksTable/components/ResultsBar';
 
 const useStyles = makeStyles((styleTheme: Theme) =>
 	createStyles({

@@ -1,4 +1,4 @@
-import {taskType} from './useTasksEstimations';
+import {taskType} from '../hooks/useTasksEstimations';
 
 export default function getTimeEstimation(tasks: taskType[], deviation: number): number {
 	let totalMean = 0;

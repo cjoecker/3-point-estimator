@@ -17,11 +17,11 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-type taskRowType = {
+type timeInputType = {
 	items: JSX.Element[];
 };
 
-const TasksRow = (props: taskRowType) => {
+const TimeInput = (props: timeInputType) => {
 	const classes = useStyles();
 
 	const {items} = props;
@@ -50,4 +50,4 @@ const TasksRow = (props: taskRowType) => {
 	);
 };
 
-export default TasksRow;
+export default TimeInput;

@@ -1,26 +1,19 @@
 import React, {useEffect} from 'react';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
-import {TextField, Typography} from '@material-ui/core';
-import {taskType, useTaskEstimationContext} from './useTasksEstimations';
-import TasksRow from './TasksRow';
+import {Button, TextField, Typography} from '@material-ui/core';
+import {useTaskEstimationContext} from '../hooks/useTasksEstimations';
+import TasksRow from './components/TasksRow';
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		root: {
 			flexGrow: 1,
 		},
-		itemsWrapper: {
-			padding: theme.spacing(1),
-		},
-		timesWrapper: {
-			width: '20ch',
-			textAlign: 'center',
-		},
-		taskInput: {
-			flexGrow: 1,
-		},
 		numberInput: {
 			textAlign: 'center',
+		},
+		buttonWrapper: {
+			marginTop: theme.spacing(1),
 		},
 	})
 );
@@ -31,25 +24,17 @@ const TasksTable = () => {
 	const {tasks, addTask, editTask} = useTaskEstimationContext();
 
 	useEffect(() => {
-		addEmptyTask(tasks);
-	}, [tasks]);
+		addEmptyTask();
+	}, []);
 
-	const addEmptyTask = (_tasks: taskType[]) => {
-		const lastTask = _tasks.length ? _tasks[_tasks.length - 1] : null;
-		if (
-			!lastTask ||
-			lastTask.text != null ||
-			lastTask.pessimisticTime != null ||
-			lastTask.mostLikelyTime != null ||
-			lastTask.optimisticTime != null
-		)
-			addTask({
-				id: _tasks.length,
-				text: null,
-				pessimisticTime: null,
-				mostLikelyTime: null,
-				optimisticTime: null,
-			});
+	const addEmptyTask = () => {
+		addTask({
+			id: tasks.length,
+			text: null,
+			pessimisticTime: null,
+			mostLikelyTime: null,
+			optimisticTime: null,
+		});
 	};
 
 	return (
@@ -109,6 +94,11 @@ const TasksTable = () => {
 					/>
 				);
 			})}
+			<div className={classes.buttonWrapper}>
+				<Button color='primary' onClick={addEmptyTask}>
+					Add new task
+				</Button>
+			</div>
 		</div>
 	);
 };

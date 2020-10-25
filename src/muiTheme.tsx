@@ -122,6 +122,11 @@ function theme(): Theme {
 					},
 				},
 			},
+			MuiButton: {
+				label: {
+					fontWeight: 300,
+				},
+			},
 			MuiPaper: {
 				root: {
 					backgroundColor: background,
