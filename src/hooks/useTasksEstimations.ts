@@ -5,6 +5,7 @@ export interface TasksEstimationsState {
 	tasks: taskType[];
 	addTask: (task: taskType) => void;
 	editTask: (task: taskType) => void;
+	deleteTask: (task: taskType) => void;
 }
 
 function useTasks(): TasksEstimationsState {
@@ -24,7 +25,11 @@ function useTasks(): TasksEstimationsState {
 		}
 	};
 
-	return {tasks, addTask, editTask};
+	const deleteTask = (task: taskType) => {
+		setTasks([...tasks.filter(newTask => newTask.id !== task.id)]);
+	};
+
+	return {tasks, addTask, editTask, deleteTask};
 }
 
 const result = constate(useTasks);
@@ -33,8 +38,8 @@ export const useTaskEstimationContext = result[1] as () => TasksEstimationsState
 
 export type taskType = {
 	id: number;
-	text: string | null;
-	optimisticTime: number | null;
-	mostLikelyTime: number | null;
-	pessimisticTime: number | null;
+	text: string | undefined;
+	optimisticTime: number | undefined;
+	mostLikelyTime: number | undefined;
+	pessimisticTime: number | undefined;
 };

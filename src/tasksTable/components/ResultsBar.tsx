@@ -46,14 +46,16 @@ const ResultsBar = () => {
 				</Grid>
 
 				<Grid item>
-					<Typography variant='body1' className={classes.typography} color='textSecondary'>
-						<Grid container direction='column' justify='center' alignItems='center' spacing={2}>
+					<Grid container direction='column' justify='center' alignItems='center' spacing={2}>
+						<Typography variant='body1' className={classes.typography} color='textSecondary'>
 							<b>
 								<u>Total Time</u>
 							</b>
+						</Typography>
+						<Typography variant='body1' className={classes.typography} color='textSecondary'>
 							{getTimeEstimation(tasks, probability)}
-						</Grid>
-					</Typography>
+						</Typography>
+					</Grid>
 				</Grid>
 			</Grid>
 		</div>

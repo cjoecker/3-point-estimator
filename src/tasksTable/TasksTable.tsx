@@ -19,25 +19,28 @@ const useStyles = makeStyles((theme: Theme) =>
 const TasksTable = () => {
 	const classes = useStyles();
 
-	const {tasks, addTask, editTask} = useTaskEstimationContext();
+	const {tasks, addTask, editTask, deleteTask} = useTaskEstimationContext();
 
 	useEffect(() => {
 		addEmptyTask();
 	}, []);
 
 	const addEmptyTask = () => {
+		const id = tasks[tasks.length - 1] ? tasks[tasks.length - 1].id + 1 : 0;
+
 		addTask({
-			id: tasks.length,
-			text: null,
-			pessimisticTime: null,
-			mostLikelyTime: null,
-			optimisticTime: null,
+			id,
+			text: '',
+			pessimisticTime: undefined,
+			mostLikelyTime: undefined,
+			optimisticTime: undefined,
 		});
 	};
 
 	return (
 		<div className={classes.root}>
 			<TasksRow
+				isTitle
 				items={[
 					underlinedTitle('Tasks'),
 					underlinedTitle('Optimistic Time'),
@@ -48,6 +51,7 @@ const TasksTable = () => {
 			{tasks.map(task => {
 				return (
 					<TasksRow
+						key={task.id}
 						items={[
 							<TextField
 								id='standard-basic'
@@ -71,6 +75,7 @@ const TasksTable = () => {
 								ariaLabel='pessimistic time'
 							/>,
 						]}
+						onDeleteTask={() => deleteTask(task)}
 					/>
 				);
 			})}

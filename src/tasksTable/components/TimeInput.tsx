@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type taskRowType = {
-	value: number | null;
+	value: number | undefined;
 	onChange: (value: number) => void;
 	ariaLabel: string;
 };
@@ -36,7 +36,7 @@ const TimeInput = (props: taskRowType) => {
 						input: classes.numberInput,
 					},
 				}}
-				value={value}
+				value={value ?? false}
 				onChange={e => onChange(parseFloat(e.target.value))}
 			/>
 		</div>
