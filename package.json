@@ -37,8 +37,8 @@
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"predeploy": "git checkout main && git pull origin main && git merge develop && git branch -D develop || git checkout -b develop && npm run build",
-		"deploy": "npm version minor -f && git push origin main && gh-pages -d build && git branch -D develop || git checkout -b develop"
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
