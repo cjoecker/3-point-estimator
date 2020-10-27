@@ -38,8 +38,8 @@ function theme(): Theme {
 			fontWeightRegular: 300,
 			fontWeightBold: 400,
 			h1: {
-				fontWeight: 400,
-				fontSize: 28,
+				fontWeight: 200,
+				fontSize: 32,
 			},
 			h2: {
 				fontWeight: 400,
@@ -74,8 +74,9 @@ function theme(): Theme {
 			MuiTypography: {
 				root: {
 					'& h1': {
-						fontWeight: 400,
-						fontSize: 28,
+						fontWeight: 300,
+						fontSize: 32,
+						display: 'inline-block',
 					},
 					'& h2': {
 						fontWeight: 400,
@@ -118,7 +119,8 @@ function theme(): Theme {
 					u: {
 						textDecoration: 'none',
 						borderBottom: `0.5px solid`,
-						paddingBottom: `-0.5px`,
+						display: 'inline-block',
+						lineHeight: '1rem',
 					},
 				},
 			},
