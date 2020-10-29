@@ -35,11 +35,19 @@ const ResultsBar = () => {
 							Probability
 						</Typography>
 						<FormControl variant='outlined'>
-							<Select value={probability} onChange={e => setProbability(e.target.value as number)}>
-								<MenuItem value={4}>99,99 %</MenuItem>
-								<MenuItem value={3}>99,73 %</MenuItem>
-								<MenuItem value={2}>95,45 %</MenuItem>
-								<MenuItem value={1}>68,27 %</MenuItem>
+							<Select value={probability} data-testid='probability' onChange={e => setProbability(e.target.value as number)}>
+								<MenuItem data-testid='deviation4' value={4}>
+									99.99 %
+								</MenuItem>
+								<MenuItem data-testid='deviation3' value={3}>
+									99.73 %
+								</MenuItem>
+								<MenuItem data-testid='deviation2' value={2}>
+									95.45 %
+								</MenuItem>
+								<MenuItem data-testid='deviation1' value={1}>
+									68.27 %
+								</MenuItem>
 							</Select>
 						</FormControl>
 					</Grid>

@@ -52,7 +52,7 @@ const TasksRow = (props: timeInputType) => {
 						<div className={classes.deleteWrapper}>
 							{!isTitle && onDeleteTask && (
 								<Tooltip title='Delete task'>
-									<IconButton aria-label='delete task' onClick={() => onDeleteTask()}>
+									<IconButton aria-label='delete task' data-testid='deleteTask' onClick={() => onDeleteTask()}>
 										<DeleteOutlineIcon fontSize='small' />
 									</IconButton>
 								</Tooltip>

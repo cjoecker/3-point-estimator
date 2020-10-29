@@ -29,6 +29,7 @@ const TimeInput = (props: taskRowType) => {
 		<div className={classes.root}>
 			<TextField
 				aria-label={ariaLabel}
+				data-testid={`${ariaLabel} input`}
 				fullWidth
 				type='number'
 				InputProps={{

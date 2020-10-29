@@ -58,6 +58,7 @@ const TasksTable = () => {
 								fullWidth
 								value={task.text}
 								onChange={e => editTask({...task, text: e.target.value})}
+								data-testid='taskInput'
 							/>,
 							<TimeInput
 								value={task.optimisticTime}
@@ -80,7 +81,7 @@ const TasksTable = () => {
 				);
 			})}
 			<div className={classes.buttonWrapper}>
-				<Button color='primary' onClick={addEmptyTask}>
+				<Button color='primary' data-testid='addTask' onClick={addEmptyTask}>
 					Add new task
 				</Button>
 			</div>

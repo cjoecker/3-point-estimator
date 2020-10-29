@@ -1,9 +1,9 @@
 import React from 'react';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core';
-import TasksTable from './TasksTable/TasksTable';
+import TasksTable from './tasksTable/TasksTable';
 import {TasksEstimationProvider} from './hooks/useTasksEstimations';
-import ResultsBar from './TasksTable/components/ResultsBar';
+import ResultsBar from './tasksTable/components/ResultsBar';
 import BannerLogo from './header/BannerLogo';
 import Footer from './footer/Footer';
 
