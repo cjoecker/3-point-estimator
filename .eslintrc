@@ -6,9 +6,10 @@
 		"eslint:recommended",
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
-		"prettier/@typescript-eslint"
+		"prettier/@typescript-eslint",
+		"plugin:jsx-a11y/recommended"
 	],
-	"plugins": ["react", "react-hooks"],
+	"plugins": ["react", "react-hooks","jsx-a11y"],
 	"parser": "@typescript-eslint/parser",
 	"rules": {
 		"no-param-reassign": [
