@@ -46,7 +46,7 @@
 		"deploy": "gh-pages -d build",
 		"lint": "eslint --max-warnings=0",
 		"lint:fix": "yarn lint --fix",
-		"lint:all": "yarn lint \"**/*.+(js|jsx|ts|tsx)\"",
+		"lint:all": "yarn lint \"src/**/*.+(js|jsx|ts|tsx)\"",
 		"lint:fix:all": "yarn lint:fix \"**/*.+(js|jsx|ts|tsx)\""
 	},
 	"eslintConfig": {

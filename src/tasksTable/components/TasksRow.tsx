@@ -21,13 +21,13 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-type timeInputType = {
+type Props = {
 	items: JSX.Element[];
 	isTitle?: boolean;
 	onDeleteTask?: () => void;
 };
 
-const TasksRow = (props: timeInputType) => {
+const TasksRow: React.FunctionComponent<Props> = (props: Props) => {
 	const classes = useStyles();
 
 	const {items, isTitle, onDeleteTask} = props;

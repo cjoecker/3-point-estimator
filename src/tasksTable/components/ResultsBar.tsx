@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-const ResultsBar = () => {
+const ResultsBar: React.FunctionComponent = () => {
 	const classes = useStyles();
 
 	const {tasks} = useTaskEstimationContext();

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-const TasksTable = () => {
+const TasksTable: React.FunctionComponent = () => {
 	const classes = useStyles();
 
 	const {tasks, addTask, editTask, deleteTask} = useTaskEstimationContext();

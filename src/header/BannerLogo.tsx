@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	})
 );
 
-const BannerLogo = () => {
+const BannerLogo: React.FunctionComponent = () => {
 	const classes = useStyles();
 
 	return (

@@ -22,7 +22,7 @@ const useStyles = makeStyles((styleTheme: Theme) =>
 	})
 );
 
-const MainPage = () => {
+const MainPage: React.FunctionComponent = () => {
 	const classes = useStyles();
 
 	return (
