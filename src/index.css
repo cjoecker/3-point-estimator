@@ -11,5 +11,7 @@ body {
 	font-style: normal;
 	font-display: swap;
 	unicode-range: U+000-5FF;
-	src: local('Work Sans'), url('/fonts/Heebo.ttf') format('ttf');
+	/*src: local('Heebo'), url('fonts/Heebo.ttf') format('ttf');*/
 }
+/*TODO uncomment line above when github issue is solved*/
+/*https://github.com/facebook/create-react-app/issues/9870*/
