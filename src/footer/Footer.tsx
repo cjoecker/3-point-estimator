@@ -29,6 +29,7 @@ const Footer: React.FunctionComponent = () => {
 						<span className={classes.heart}>
 							<Favorite aria-label='love' fontSize='inherit' />
 						</span>
+						{/*eslint-disable-next-line react/jsx-one-expression-per-line*/}
 						&nbsp;by{' '}
 						<Link
 							data-testid='cjoeckerLink'
