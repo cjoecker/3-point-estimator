@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/3-point-estimator/static/css/main.35cea91c.chunk.css",
-    "main.js": "/3-point-estimator/static/js/main.b3071530.chunk.js",
-    "main.js.map": "/3-point-estimator/static/js/main.b3071530.chunk.js.map",
+    "main.js": "/3-point-estimator/static/js/main.4e0612b4.chunk.js",
+    "main.js.map": "/3-point-estimator/static/js/main.4e0612b4.chunk.js.map",
     "runtime-main.js": "/3-point-estimator/static/js/runtime-main.74dfd071.js",
     "runtime-main.js.map": "/3-point-estimator/static/js/runtime-main.74dfd071.js.map",
-    "static/js/2.4fb9887a.chunk.js": "/3-point-estimator/static/js/2.4fb9887a.chunk.js",
-    "static/js/2.4fb9887a.chunk.js.map": "/3-point-estimator/static/js/2.4fb9887a.chunk.js.map",
+    "static/js/2.f90e64cb.chunk.js": "/3-point-estimator/static/js/2.f90e64cb.chunk.js",
+    "static/js/2.f90e64cb.chunk.js.map": "/3-point-estimator/static/js/2.f90e64cb.chunk.js.map",
     "index.html": "/3-point-estimator/index.html",
     "static/css/main.35cea91c.chunk.css.map": "/3-point-estimator/static/css/main.35cea91c.chunk.css.map",
-    "static/js/2.4fb9887a.chunk.js.LICENSE.txt": "/3-point-estimator/static/js/2.4fb9887a.chunk.js.LICENSE.txt"
+    "static/js/2.f90e64cb.chunk.js.LICENSE.txt": "/3-point-estimator/static/js/2.f90e64cb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.74dfd071.js",
-    "static/js/2.4fb9887a.chunk.js",
+    "static/js/2.f90e64cb.chunk.js",
     "static/css/main.35cea91c.chunk.css",
-    "static/js/main.b3071530.chunk.js"
+    "static/js/main.4e0612b4.chunk.js"
   ]
 }
