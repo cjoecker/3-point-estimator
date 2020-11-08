@@ -8,6 +8,14 @@ export interface TasksEstimationsState {
 	deleteTask: (task: taskType) => void;
 }
 
+export type taskType = {
+	id: number;
+	text: string | undefined;
+	optimisticTime: number | undefined;
+	mostLikelyTime: number | undefined;
+	pessimisticTime: number | undefined;
+};
+
 function useTasks(): TasksEstimationsState {
 	const [tasks, setTasks] = useState<taskType[]>([]);
 
@@ -17,10 +25,11 @@ function useTasks(): TasksEstimationsState {
 
 	const editTask = (task: taskType) => {
 		const taskPos = tasks.findIndex(_task => _task.id === task.id);
+
 		const newTasks = [...tasks];
 
 		if (taskPos != null) {
-			newTasks[taskPos] = task;
+			newTasks[taskPos] = getNegativeNumsToZero(task);
 			setTasks(newTasks);
 		}
 	};
@@ -32,14 +41,16 @@ function useTasks(): TasksEstimationsState {
 	return {tasks, addTask, editTask, deleteTask};
 }
 
+function getNegativeNumsToZero(task: taskType) {
+	const newTask = task;
+
+	newTask.optimisticTime = newTask.optimisticTime ? Math.max(0, newTask.optimisticTime) : undefined;
+	newTask.mostLikelyTime = newTask.mostLikelyTime ? Math.max(0, newTask.mostLikelyTime) : undefined;
+	newTask.pessimisticTime = newTask.pessimisticTime ? Math.max(0, newTask.pessimisticTime) : undefined;
+
+	return newTask;
+}
+
 const result = constate(useTasks);
 export const TasksEstimationProvider = result[0];
 export const useTaskEstimationContext = result[1] as () => TasksEstimationsState;
-
-export type taskType = {
-	id: number;
-	text: string | undefined;
-	optimisticTime: number | undefined;
-	mostLikelyTime: number | undefined;
-	pessimisticTime: number | undefined;
-};
