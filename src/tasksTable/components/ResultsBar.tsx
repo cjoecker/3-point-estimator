@@ -10,8 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			display: 'inline-block',
 			border: 'solid 0.5px white',
 			padding: theme.spacing(2),
-			marginTop: theme.spacing(4),
-			marginRight: theme.spacing(2),
+			margin: theme.spacing(4, 2),
 		},
 		typography: {
 			margin: theme.spacing(0, 2),

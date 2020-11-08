@@ -9,8 +9,10 @@ export default function getTimeEstimation(tasks: taskType[], deviation: number):
 		const mostLikelyTime = task.mostLikelyTime ?? 0;
 		const pessimisticTime = task.pessimisticTime ?? 0;
 
-		totalMean += (optimisticTime + mostLikelyTime * 4 + pessimisticTime) / 6;
-		totalVarians += (pessimisticTime - optimisticTime) ** 2 / 36;
+		if (!Number.isNaN(optimisticTime) && !Number.isNaN(mostLikelyTime) && !Number.isNaN(pessimisticTime)) {
+			totalMean += (optimisticTime + mostLikelyTime * 4 + pessimisticTime) / 6;
+			totalVarians += (pessimisticTime - optimisticTime) ** 2 / 36;
+		}
 	});
 
 	const totalEstimatedTime = totalMean + Math.sqrt(totalVarians) * deviation;
