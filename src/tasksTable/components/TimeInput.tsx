@@ -18,16 +18,18 @@ type Props = {
 	value: number | undefined;
 	onChange: (value: number) => void;
 	ariaLabel: string;
+	label: string | undefined;
 };
 
 const TimeInput: React.FunctionComponent<Props> = (props: Props) => {
 	const classes = useStyles();
 
-	const {value, onChange, ariaLabel} = props;
+	const {value, onChange, ariaLabel, label} = props;
 
 	return (
 		<div className={classes.root}>
 			<TextField
+				label={label}
 				aria-label={ariaLabel}
 				data-testid={`${ariaLabel} input`}
 				fullWidth
@@ -36,6 +38,9 @@ const TimeInput: React.FunctionComponent<Props> = (props: Props) => {
 					classes: {
 						input: classes.numberInput,
 					},
+				}}
+				InputLabelProps={{
+					shrink: true,
 				}}
 				value={value ?? false}
 				onChange={e => onChange(parseFloat(e.target.value))}

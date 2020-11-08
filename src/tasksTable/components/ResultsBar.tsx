@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			display: 'inline-block',
 			border: 'solid 0.5px white',
 			padding: theme.spacing(2),
-			marginTop: theme.spacing(2),
+			marginTop: theme.spacing(4),
 			marginRight: theme.spacing(2),
 		},
 		typography: {
@@ -52,7 +52,6 @@ const ResultsBar: React.FunctionComponent = () => {
 						</FormControl>
 					</Grid>
 				</Grid>
-
 				<Grid item>
 					<Grid container direction='column' justify='center' alignItems='center' spacing={2}>
 						<Typography variant='body1' className={classes.typography} color='textSecondary'>

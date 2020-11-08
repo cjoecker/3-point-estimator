@@ -1,6 +1,7 @@
 import React from 'react';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import {Grid} from '@material-ui/core';
+import {isMobile} from 'react-device-detect';
 import TasksTable from './tasksTable/TasksTable';
 import {TasksEstimationProvider} from './hooks/useTasksEstimations';
 import ResultsBar from './tasksTable/components/ResultsBar';
@@ -17,7 +18,7 @@ const useStyles = makeStyles((styleTheme: Theme) =>
 			minHeight: '100vh',
 		},
 		tasksTableWrapper: {
-			margin: styleTheme.spacing(0, 10),
+			margin: styleTheme.spacing(0, isMobile ? 2 : 10),
 		},
 	})
 );
@@ -32,7 +33,7 @@ const MainPage: React.FunctionComponent = () => {
 					<BannerLogo />
 					<div className={classes.tasksTableWrapper}>
 						<TasksTable />
-						<Grid container direction='row' justify='flex-end' alignItems='flex-end'>
+						<Grid container direction='row' justify={isMobile ? 'center' : 'flex-end'} alignItems='flex-end'>
 							<ResultsBar />
 						</Grid>
 					</div>

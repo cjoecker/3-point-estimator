@@ -139,6 +139,11 @@ function theme(): Theme {
 					border: `solid 0.5px ${primaryText}`,
 				},
 			},
+			MuiFormLabel: {
+				root: {
+					color: primaryText,
+				},
+			},
 			MuiOutlinedInput: {
 				notchedOutline: {
 					borderWidth: `0.5px`,

@@ -24,22 +24,22 @@ const useStyles = makeStyles((theme: Theme) =>
 type Props = {
 	items: JSX.Element[];
 	isTitle?: boolean;
-	onDeleteTask?: () => void;
+	onClickDelete?: () => void;
 };
 
-const TasksRow: React.FunctionComponent<Props> = (props: Props) => {
+const TasksRowDesktop: React.FunctionComponent<Props> = (props: Props) => {
 	const classes = useStyles();
 
-	const {items, isTitle, onDeleteTask} = props;
+	const {items, isTitle, onClickDelete} = props;
 
 	return (
 		<Grid container>
-			<Grid container spacing={2}>
-				<Grid item className={classes.taskInput}>
+			<Grid container spacing={2} wrap='nowrap'>
+				<Grid item className={classes.taskInput} wrap='nowrap'>
 					<div className={classes.itemsWrapper}>{items[0]}</div>
 				</Grid>
 				<Grid item>
-					<Grid container>
+					<Grid container wrap='nowrap'>
 						<Grid item>
 							<div className={`${classes.timesWrapper} ${classes.itemsWrapper}`}>{items[1]}</div>
 						</Grid>
@@ -50,9 +50,9 @@ const TasksRow: React.FunctionComponent<Props> = (props: Props) => {
 							<div className={`${classes.timesWrapper} ${classes.itemsWrapper}`}>{items[3]}</div>
 						</Grid>
 						<div className={classes.deleteWrapper}>
-							{!isTitle && onDeleteTask && (
+							{!isTitle && onClickDelete && (
 								<Tooltip title='Delete task'>
-									<IconButton aria-label='delete task' data-testid='deleteTask' onClick={() => onDeleteTask()}>
+									<IconButton aria-label='delete task' data-testid='deleteTask' onClick={() => onClickDelete()}>
 										<DeleteOutlineIcon fontSize='small' />
 									</IconButton>
 								</Tooltip>
@@ -65,4 +65,4 @@ const TasksRow: React.FunctionComponent<Props> = (props: Props) => {
 	);
 };
 
-export default TasksRow;
+export default TasksRowDesktop;
