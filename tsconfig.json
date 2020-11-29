@@ -14,7 +14,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"moduleResolution": "node",
 		"isolatedModules": true,
-		"jsx": "react",
+		"jsx": "react-jsx",
 		"baseUrl": "src",
 		"noEmit": true,
 		"allowUmdGlobalAccess": true,
