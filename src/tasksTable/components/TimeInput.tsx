@@ -38,7 +38,7 @@ const TimeInput: React.FunctionComponent<Props> = (props: Props) => {
 				inputMode='decimal'
 				inputProps={{
 					keyboardType: 'number-pad',
-					pattern: '[0-9]*',
+					inputMode: 'decimal',
 				}}
 				InputProps={{
 					classes: {
