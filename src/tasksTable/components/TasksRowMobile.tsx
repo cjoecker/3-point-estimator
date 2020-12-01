@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
-import {Grid, IconButton, Tooltip} from '@material-ui/core';
+import {Collapse, Grid, IconButton, Tooltip} from '@material-ui/core';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -22,41 +22,50 @@ const useStyles = makeStyles((theme: Theme) =>
 type Props = {
 	items: JSX.Element[];
 	onClickDelete?: () => void;
+	isNewTask?: boolean;
 };
 
 const TasksRowMobile: React.FunctionComponent<Props> = (props: Props) => {
 	const classes = useStyles();
 
-	const {items, onClickDelete} = props;
+	const [isVisible, setIsVisible] = useState(false);
+
+	useEffect(() => {
+		setIsVisible(true);
+	}, []);
+
+	const {items, onClickDelete, isNewTask} = props;
 
 	return (
-		<div className={classes.mainDiv}>
-			<Grid container spacing={2}>
-				<Grid item xs={12}>
-					<Grid container spacing={2} direction='row' justify='center' alignItems='flex-start'>
-						<div className={classes.taskInput}>{items[0]}</div>
-						{onClickDelete && (
-							<div>
-								<Tooltip title='Delete task'>
-									<IconButton aria-label='delete task' data-testid='deleteTask' onClick={() => onClickDelete()}>
-										<DeleteOutlineIcon fontSize='small' />
-									</IconButton>
-								</Tooltip>
-							</div>
-						)}
+		<Collapse in={isVisible} timeout={500} onExited={onClickDelete}>
+			<div className={classes.mainDiv}>
+				<Grid container spacing={2}>
+					<Grid item xs={12}>
+						<Grid container direction='row' justify='center' alignItems='flex-start'>
+							<div className={classes.taskInput}>{items[0]}</div>
+							{onClickDelete && !isNewTask && (
+								<div>
+									<Tooltip title='Delete task'>
+										<IconButton aria-label='delete task' data-testid='deleteTask' onClick={() => setIsVisible(false)}>
+											<DeleteOutlineIcon fontSize='small' />
+										</IconButton>
+									</Tooltip>
+								</div>
+							)}
+						</Grid>
+					</Grid>
+					<Grid item xs={4} className={classes.taskInput}>
+						<div>{items[1]}</div>
+					</Grid>
+					<Grid item xs={4} className={classes.taskInput}>
+						<div>{items[2]}</div>
+					</Grid>
+					<Grid item xs={4} className={classes.taskInput}>
+						<div>{items[3]}</div>
 					</Grid>
 				</Grid>
-				<Grid item xs={4} className={classes.taskInput}>
-					<div>{items[1]}</div>
-				</Grid>
-				<Grid item xs={4} className={classes.taskInput}>
-					<div>{items[2]}</div>
-				</Grid>
-				<Grid item xs={4} className={classes.taskInput}>
-					<div>{items[3]}</div>
-				</Grid>
-			</Grid>
-		</div>
+			</div>
+		</Collapse>
 	);
 };
 

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
-import {Button, TextField, Typography} from '@material-ui/core';
+import {TextField, Typography} from '@material-ui/core';
 import {isMobile} from 'react-device-detect';
 import {taskType, useTaskEstimationContext} from '../hooks/useTasksEstimations';
 import TasksRowDesktop from './components/TasksRowDesktop';
@@ -27,6 +27,14 @@ const TasksTable: React.FunctionComponent = () => {
 		addEmptyTask();
 	}, []);
 
+	useEffect(() => {
+		if (tasks.length > 0 && !isTaskEmpty(tasks[tasks.length - 1])) addEmptyTask();
+	}, [tasks]);
+
+	const isTaskEmpty = (task: taskType) => {
+		return task.text === '' && task.optimisticTime == null && task.mostLikelyTime == null && task.pessimisticTime == null;
+	};
+
 	const addEmptyTask = () => {
 		const id = tasks[tasks.length - 1] ? tasks[tasks.length - 1].id + 1 : 0;
 
@@ -42,6 +50,7 @@ const TasksTable: React.FunctionComponent = () => {
 	const items = (task: taskType) => [
 		<TextField
 			label={isMobile ? 'Task' : undefined}
+			placeholder='New task'
 			id='standard-basic'
 			fullWidth
 			value={task.text}
@@ -84,18 +93,23 @@ const TasksTable: React.FunctionComponent = () => {
 					]}
 				/>
 			)}
-			{tasks.map(task => {
+			{tasks.map((task, index) => {
 				return isMobile ? (
-					<TasksRowMobile key={task.id} items={items(task)} onClickDelete={() => deleteTask(task)} />
+					<TasksRowMobile
+						key={task.id}
+						items={items(task)}
+						onClickDelete={() => deleteTask(task)}
+						isNewTask={isTaskEmpty(task) && index === tasks.length - 1}
+					/>
 				) : (
-					<TasksRowDesktop key={task.id} items={items(task)} onClickDelete={() => deleteTask(task)} />
+					<TasksRowDesktop
+						key={task.id}
+						items={items(task)}
+						onClickDelete={() => deleteTask(task)}
+						isNewTask={isTaskEmpty(task) && index === tasks.length - 1}
+					/>
 				);
 			})}
-			<div className={classes.buttonWrapper}>
-				<Button color='secondary' data-testid='addTask' onClick={addEmptyTask}>
-					Add task
-				</Button>
-			</div>
 		</div>
 	);
 };
