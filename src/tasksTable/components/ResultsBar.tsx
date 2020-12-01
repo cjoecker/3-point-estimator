@@ -54,15 +54,17 @@ const ResultsBar: React.FunctionComponent = () => {
 					</Grid>
 				</Grid>
 				<Grid item>
-					<Grid container style={{flexGrow: 1}} direction='column' justify='center' alignItems='center'>
-						<Typography variant='body1' className={classes.typography} color='textSecondary'>
-							<b>
-								<u>Total Time</u>
-							</b>
-							<br />
-							{getTimeEstimation(tasks, probability)}
-						</Typography>
-					</Grid>
+					<div style={{flexGrow: 1, width: '100%'}}>
+						<Grid container direction='column' justify='center' alignItems='center'>
+							<Typography variant='body1' className={classes.typography} color='textSecondary'>
+								<b>
+									<u>Total Time</u>
+								</b>
+								<br />
+								{getTimeEstimation(tasks, probability)}
+							</Typography>
+						</Grid>
+					</div>
 				</Grid>
 			</Grid>
 		</div>
