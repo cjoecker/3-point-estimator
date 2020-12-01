@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		typography: {
 			margin: theme.spacing(0, 2),
+			textAlign: 'center',
 		},
 	})
 );
@@ -57,8 +58,7 @@ const ResultsBar: React.FunctionComponent = () => {
 							<b>
 								<u>Total Time</u>
 							</b>
-						</Typography>
-						<Typography variant='body1' className={classes.typography} color='textSecondary'>
+							<br />
 							{getTimeEstimation(tasks, probability)}
 						</Typography>
 					</Grid>

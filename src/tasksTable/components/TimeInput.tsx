@@ -26,6 +26,7 @@ const TimeInput: React.FunctionComponent<Props> = (props: Props) => {
 
 	const {value, onChange, ariaLabel, label} = props;
 
+	/* eslint-disable react/jsx-no-duplicate-props */
 	return (
 		<div className={classes.root}>
 			<TextField
@@ -34,7 +35,11 @@ const TimeInput: React.FunctionComponent<Props> = (props: Props) => {
 				data-testid={`${ariaLabel} input`}
 				fullWidth
 				type='number'
-				inputMode='decimal'
+				inputMode='numeric'
+				inputProps={{
+					keyboardType: 'number-pad',
+					pattern: '[0-9]*',
+				}}
 				InputProps={{
 					classes: {
 						input: classes.numberInput,
