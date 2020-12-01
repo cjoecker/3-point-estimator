@@ -35,7 +35,7 @@ const TimeInput: React.FunctionComponent<Props> = (props: Props) => {
 				data-testid={`${ariaLabel} input`}
 				fullWidth
 				type='number'
-				inputMode='numeric'
+				inputMode='decimal'
 				inputProps={{
 					keyboardType: 'number-pad',
 					pattern: '[0-9]*',
