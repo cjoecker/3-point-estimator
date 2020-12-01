@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		typography: {
 			margin: theme.spacing(0, 2),
 			textAlign: 'center',
+			display: 'inline',
 		},
 	})
 );
@@ -29,7 +30,7 @@ const ResultsBar: React.FunctionComponent = () => {
 	return (
 		<div className={classes.mainDiv}>
 			<Grid container direction='row' justify='center' alignItems='center' spacing={2}>
-				<Grid item>
+				<Grid item xs>
 					<Grid container direction='column' justify='center' alignItems='center'>
 						<Typography variant='body1' className={classes.typography}>
 							Probability
@@ -53,7 +54,7 @@ const ResultsBar: React.FunctionComponent = () => {
 					</Grid>
 				</Grid>
 				<Grid item>
-					<Grid container direction='column' justify='center' alignItems='center' spacing={2}>
+					<Grid container style={{flexGrow: 1}} direction='column' justify='center' alignItems='center' spacing={2}>
 						<Typography variant='body1' className={classes.typography} color='textSecondary'>
 							<b>
 								<u>Total Time</u>
