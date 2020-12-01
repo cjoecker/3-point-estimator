@@ -123,6 +123,11 @@ function theme(): Theme {
 					fontWeight: 300,
 				},
 			},
+			MuiInput: {
+				input: {
+					paddingTop: 10,
+				},
+			},
 			MuiPaper: {
 				root: {
 					backgroundColor: background,
@@ -136,6 +141,7 @@ function theme(): Theme {
 			MuiFormLabel: {
 				root: {
 					color: primaryText,
+					marginBottom: '10px',
 				},
 			},
 			MuiOutlinedInput: {

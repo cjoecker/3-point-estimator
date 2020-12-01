@@ -37,7 +37,7 @@ const TasksRowMobile: React.FunctionComponent<Props> = (props: Props) => {
 	const {items, onClickDelete, isNewTask} = props;
 
 	return (
-		<Collapse in={isVisible} timeout={500} onExited={onClickDelete}>
+		<Collapse in={isVisible} timeout={800} onExited={onClickDelete}>
 			<div className={classes.mainDiv}>
 				<Grid container spacing={2}>
 					<Grid item xs={12}>

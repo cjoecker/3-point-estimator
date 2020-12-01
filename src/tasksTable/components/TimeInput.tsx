@@ -34,6 +34,7 @@ const TimeInput: React.FunctionComponent<Props> = (props: Props) => {
 				data-testid={`${ariaLabel} input`}
 				fullWidth
 				type='number'
+				inputMode='decimal'
 				InputProps={{
 					classes: {
 						input: classes.numberInput,
@@ -42,7 +43,7 @@ const TimeInput: React.FunctionComponent<Props> = (props: Props) => {
 				InputLabelProps={{
 					shrink: true,
 				}}
-				value={value ?? false}
+				value={value ?? undefined}
 				onChange={e => onChange(parseFloat(e.target.value))}
 			/>
 		</div>
