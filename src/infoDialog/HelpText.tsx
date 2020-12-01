@@ -1,5 +1,5 @@
 import React from 'react';
-
+/*eslint-disable react/jsx-one-expression-per-line*/
 const HelpText = (
 	<div>
 		<h1
