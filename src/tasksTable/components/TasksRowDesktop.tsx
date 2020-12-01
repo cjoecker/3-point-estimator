@@ -18,6 +18,19 @@ const useStyles = makeStyles((theme: Theme) =>
 		taskInput: {
 			flexGrow: 1,
 		},
+		tasksWrapper: {
+			display: 'flex',
+			flexGrow: 1,
+		},
+		task: {
+			flex: '4 4 100ch',
+			margin: theme.spacing(0, 2),
+		},
+		time: {
+			flex: '1 1 15ch',
+			textAlign: 'center',
+			margin: theme.spacing(0, 2),
+		},
 	})
 );
 
@@ -41,34 +54,22 @@ const TasksRowDesktop: React.FunctionComponent<Props> = (props: Props) => {
 
 	return (
 		<Collapse in={isVisible} timeout={500} onExited={onClickDelete}>
-			<Grid container>
-				<Grid container spacing={2} wrap='nowrap'>
-					<Grid item className={classes.taskInput}>
-						<div className={classes.itemsWrapper}>{items[0]}</div>
-					</Grid>
-					<Grid item>
-						<Grid container wrap='nowrap'>
-							<Grid item>
-								<div className={`${classes.timesWrapper} ${classes.itemsWrapper}`}>{items[1]}</div>
-							</Grid>
-							<Grid item>
-								<div className={`${classes.timesWrapper} ${classes.itemsWrapper}`}>{items[2]}</div>
-							</Grid>
-							<Grid item>
-								<div className={`${classes.timesWrapper} ${classes.itemsWrapper}`}>{items[3]}</div>
-							</Grid>
-							<div className={classes.deleteWrapper}>
-								{!isTitle && onClickDelete && !isNewTask && (
-									<Tooltip title='Delete task'>
-										<IconButton aria-label='delete task' data-testid='deleteTask' onClick={() => setIsVisible(false)}>
-											<DeleteOutlineIcon fontSize='small' />
-										</IconButton>
-									</Tooltip>
-								)}
-							</div>
-						</Grid>
-					</Grid>
-				</Grid>
+			<Grid container style={{marginBottom: isTitle ? '10px' : undefined}}>
+				<div className={classes.tasksWrapper}>
+					<div className={classes.task}>{items[0]}</div>
+					<div className={classes.time}>{items[1]}</div>
+					<div className={classes.time}>{items[2]}</div>
+					<div className={classes.time}>{items[3]}</div>
+					<div className={classes.deleteWrapper}>
+						{!isTitle && onClickDelete && !isNewTask && (
+							<Tooltip title='Delete task'>
+								<IconButton aria-label='delete task' data-testid='deleteTask' onClick={() => setIsVisible(false)}>
+									<DeleteOutlineIcon fontSize='small' />
+								</IconButton>
+							</Tooltip>
+						)}
+					</div>
+				</div>
 			</Grid>
 		</Collapse>
 	);

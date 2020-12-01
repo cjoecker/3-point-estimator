@@ -116,12 +116,6 @@ function theme(): Theme {
 					body: {
 						background: `linear-gradient(145deg, ${background} 0%, ${shadeHexColor(background, -0.57)}) 100%`,
 					},
-					u: {
-						textDecoration: 'none',
-						borderBottom: `0.5px solid`,
-						display: 'inline-block',
-						lineHeight: '1rem',
-					},
 				},
 			},
 			MuiButton: {
