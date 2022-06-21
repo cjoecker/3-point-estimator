@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import constate from 'constate';
 
 export interface TasksEstimationsState {
@@ -16,8 +16,18 @@ export type taskType = {
 	pessimisticTime: number | undefined;
 };
 
+const LOCAL_STORAGE_KEY = 'tasks';
+
 function useTasks(): TasksEstimationsState {
 	const [tasks, setTasks] = useState<taskType[]>([]);
+
+	useEffect(() => {
+		const savedTasks = window.localStorage.getItem(LOCAL_STORAGE_KEY);
+		if (savedTasks) setTasks(JSON.parse(savedTasks));
+	}, []);
+	useEffect(() => {
+		window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasks));
+	}, [tasks]);
 
 	const addTask = (task: taskType) => {
 		setTasks([...tasks, task]);
